@@ -33,8 +33,8 @@ class UserUpdate(BaseModel):
 
 
 db_user: list[User] = [
-        User(id= 0, pseudo= "kirito", nom="kirigaya", prenom = "ego", age=14),
-        User(id= 1, pseudo= "kaneki", nom="ken", prenom= "feu", age=22)
+        User(id= 1, pseudo= "kirito", nom="kirigaya", prenom = "ego", age=14),
+        User(id= 2, pseudo= "kaneki", nom="ken", prenom= "feu", age=22)
 ]
 
 @app.post("/users", response_model=User, status_code=200)
@@ -51,6 +51,13 @@ def create_user(benevole: UserCreate):
         print("User crée avec succès")
         return new_user
 
-@app.get("/users", response_model=list[User])
+@app.get("/users", response_model=list[User], status_code=200)
 def get_all_user():
         return db_user
+
+#specific user
+@app.get("/users/{user_id}")
+def get_user(user_id: int):
+        for user in db_user:
+                if user.id == user_id:
+                        return user
