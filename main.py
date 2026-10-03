@@ -61,3 +61,19 @@ def get_user(user_id: int):
         for user in db_user:
                 if user.id == user_id:
                         return user
+
+@app.put("/users/{user_id}", response_model=User)
+def update_user(user_id: int, user_update: UserUpdate):
+        for user in db_user:
+                if user.id == user_id:
+
+                        if user_update.pseudo is not None:
+                                user.pseudo = user_update.pseudo
+                        if user_update.age is not None: 
+                                user.age = user_update.age
+                        if user_update.nom is not None:
+                                user.nom = user_update.nom
+                        if user_update.prenom is not None:
+                                user.prenom = user_update.prenom
+                return user
+        raise HTTPException(status_code=400, detail="Erreur lors de la modification")
