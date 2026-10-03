@@ -37,6 +37,8 @@ db_user: list[User] = [
         User(id= 2, pseudo= "kaneki", nom="ken", prenom= "feu", age=22)
 ]
 
+
+#creer un nouveau benevole
 @app.post("/users", response_model=User, status_code=200)
 def create_user(benevole: UserCreate):
         new_id = max([u.id for u in db_user], default=0) + 1
@@ -62,6 +64,9 @@ def get_user(user_id: int):
                 if user.id == user_id:
                         return user
 
+
+
+#modifier un benevole
 @app.put("/users/{user_id}", response_model=User)
 def update_user(user_id: int, user_update: UserUpdate):
         for user in db_user:
@@ -77,3 +82,15 @@ def update_user(user_id: int, user_update: UserUpdate):
                                 user.prenom = user_update.prenom
                 return user
         raise HTTPException(status_code=400, detail="Erreur lors de la modification")
+
+
+@app.delete("/users/{user_id}", status_code=200)
+def delete_user(user_id: int):
+
+        # on doit uliliser global pour modifier une variable globale
+        global db_user
+
+        # valeur de retour user, pour chq user dans db on parcours et creer une nouvelle liste sans l'user_id entré en params
+        db_user = [user for user in db_user if user.id != user_id]
+        return {"message": "Utilisateur supprimé"}
+        raise HTTPException(status_code=400, detail="Erreur lors de la suppression")
