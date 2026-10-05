@@ -1,9 +1,12 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Optional
+from app.routers import mission
 
 
 app = FastAPI()
+app.include_router(mission.router)
+
 
 @app.get("/test")
 def test():
