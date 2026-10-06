@@ -3,9 +3,12 @@ from app.models import Mission, MissionCreate, MissionUpdate
 from app.database import db_mission
 
 #definition route mission 
-router = APIRouter(prefix="/missions", tags=["missions"])
+router = APIRouter(prefix="/missions", tags="missions")
 
-@router.post("", response_model=Mission, status_code=201)
+
+#preifix pour eviter d'ecrire mission a chaque fois, juste ""
+
+@router.post("/", response_model=Mission, status_code=201)
 def create_mission(mission: MissionCreate):
     new_id = max([m.id for m in db_mission], default=0) + 1
     new_mission = Mission(
@@ -21,7 +24,7 @@ def create_mission(mission: MissionCreate):
     return new_mission
 
 #retourner tous les missions
-@router.get("", response_model=list[Mission])
+@router.get("/", response_model=list[Mission])
 def get_all_mission():
     return db_mission
 
