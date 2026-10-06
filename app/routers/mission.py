@@ -3,10 +3,10 @@ from app.models import Mission, MissionCreate, MissionUpdate
 from app.database import db_mission
 
 #definition route mission 
-router = APIRouter(prefix="/missions", tags="missions")
+router = APIRouter(prefix="/missions", tags=["missions"])
 
 
-#preifix pour eviter d'ecrire mission a chaque fois, juste ""
+#prefix pour eviter d'ecrire mission a chaque fois, juste ""
 
 @router.post("/", response_model=Mission, status_code=201)
 def create_mission(mission: MissionCreate):

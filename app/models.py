@@ -25,22 +25,24 @@ class MissionUpdate(BaseModel):
     nb_place: Optional[int] = None
 
 
-db_mission: list[Mission] = [
-    Mission(
-        id=1,
-        titre="Aide sans abris",
-        description="La mission consistera a aider les pauvres du quartier anosizato",
-        lieu = "anosizato",
-        date = "2026-10-04T08:00:00",
-        nb_place = 30
-    ),
-    Mission(
-        id=2,
-        titre="Visite pere pedro",
-        description="Distribution de repas a pere pedro",
-        lieu = "bypass",
-        date = "2026-10-04T08:00:00",
-        nb_place = 40
-    ),
+class User(BaseModel):
+        id: int
+        pseudo: str
+        nom: str
+        prenom: str
+        age: int
 
-]
+
+class UserCreate(BaseModel):
+        pseudo: str
+        nom: str
+        prenom: str
+        age: int
+
+
+class UserUpdate(BaseModel):
+        pseudo: Optional[str] = None
+        nom: Optional[str] = None
+        prenom: Optional[str] = None
+        age: Optional[int] = None
+

@@ -19,3 +19,10 @@ db_mission: list[Mission] = [
     ),
 
 ]
+
+
+db_user: list[User] = [
+                User(id= 1, pseudo= "kirito", nom="kirigaya", prenom = "ego", age=14),
+                User(id= 2, pseudo= "kaneki", nom="ken", prenom= "feu", age=22)
+]
+
