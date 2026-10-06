@@ -1,6 +1,4 @@
 from fastapi import FastAPI, HTTPException, APIRouter
-from pydantic import BaseModel
-from typing import Optional
 from app.models import User, UserCreate, UserUpdate
 from app.database import db_user
 

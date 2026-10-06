@@ -1,5 +1,5 @@
 # ici on met la connexion avec la base de données
-from models import User, Mission
+from app.models import User, Mission
 db_mission: list[Mission] = [
     Mission(
         id=1,
