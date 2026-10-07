@@ -46,3 +46,15 @@ class UserUpdate(BaseModel):
         prenom: Optional[str] = None
         age: Optional[int] = None
 
+
+# id fotsiny no ilaina satria efa miexiste ilay user
+# c est comme emprunt livre librairie
+class InscriptionCreate(BaseModel):
+    user_id: int
+
+# si je veux afficher j'utilise cette classe
+class Inscription(BaseModel):
+      id: int 
+      user_id: int
+      mission_id: int
+      date_inscription: datetime
