@@ -1,6 +1,6 @@
 from app.models import InscriptionCreate
 from fastapi import APIRouter, HTTPException
-from app.database import db_mission, db_user
+from app.database import db_mission, db_user, db_inscription
 
 router = APIRouter(prefix="mission", tags=["inscription"])
 @router.post("/{mission_id}/inscription", status_code=200)
@@ -35,8 +35,15 @@ def inscrire(mission_id: int, data: InscriptionCreate):
 
 
     # verifier que non inscrit 
+    #comparena ny user_id et mission_id ra micorrespondonre anatinle base
 
+    
+    for ligne in db_inscription:
+        if mission_id == ligne.mission_id and data.user_id == ligne.user_id:
+            deja_inscrit = True
+            raise HTTPException(status_code=409, detail="L'Utilisateur est déja inscrit a cette mission")
 
+    
 
 
     # verifier si nombre de places tjr dispo
