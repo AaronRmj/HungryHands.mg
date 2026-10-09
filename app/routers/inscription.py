@@ -43,7 +43,16 @@ def inscrire(mission_id: int, data: InscriptionCreate):
             deja_inscrit = True
             raise HTTPException(status_code=409, detail="L'Utilisateur est déja inscrit a cette mission")
 
-    
 
 
     # verifier si nombre de places tjr dispo
+    cpt = 0
+    for ligne in db_inscription:
+        if mission_id == ligne.mission_id:
+            cpt +=1 
+
+    if cpt >= mission.nb_place
+        raise HTTPException(status_code=400, detail="Limite nombre de places atteintes")
+            
+
+

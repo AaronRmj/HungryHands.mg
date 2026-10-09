@@ -58,3 +58,5 @@ class Inscription(BaseModel):
       user_id: int
       mission_id: int
       date_inscription: datetime
+
+    
