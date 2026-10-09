@@ -1,7 +1,6 @@
 from fastapi import APIRouter, HTTPException
 from app.models import Mission, MissionCreate, MissionUpdate
 from app.database import db_mission
-
 #definition route mission 
 router = APIRouter(prefix="/missions", tags=["missions"])
 

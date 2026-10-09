@@ -26,23 +26,21 @@ db_user: list[User] = [
                 User(id= 2, pseudo= "kaneki", nom="ken", prenom= "feu", age=22)
 ]
 
-db_inscription : list[Inscription] = [
+db_inscription: list[Inscription] = [
     Inscription(
         id = 1,
         user_id = 2,
-        mission_id = 2,
-        nb_places = 20
+        mission_id = 2
+        
     ),
     Inscription(
         id = 2,
         user_id = 1,
-        mission_id = 2,
-        nb_places = 20
+        mission_id = 2
     ),
     Inscription(
         id = 3,
         user_id = 3,
-        mission_id = 2,
-        nb_places = 20
+        mission_id = 2
     )
 ]

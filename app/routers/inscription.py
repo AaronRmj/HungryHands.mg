@@ -2,7 +2,7 @@ from app.models import InscriptionCreate
 from fastapi import APIRouter, HTTPException
 from app.database import db_mission, db_user, db_inscription
 
-router = APIRouter(prefix="mission", tags=["inscription"])
+router = APIRouter(prefix="/mission", tags=["inscription"])
 @router.post("/{mission_id}/inscription", status_code=200)
 
 #user_id et mission_id no avy amin ny client
@@ -51,7 +51,7 @@ def inscrire(mission_id: int, data: InscriptionCreate):
         if mission_id == ligne.mission_id:
             cpt +=1 
 
-    if cpt >= mission.nb_place
+    if cpt >= mission.nb_place:
         raise HTTPException(status_code=400, detail="Limite nombre de places atteintes")
             
 
