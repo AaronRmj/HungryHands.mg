@@ -1,5 +1,5 @@
 # ici on met la connexion avec la base de données
-from app.models import User, Mission
+from app.models import User, Mission, Inscription
 db_mission: list[Mission] = [
     Mission(
         id=1,
@@ -26,3 +26,10 @@ db_user: list[User] = [
                 User(id= 2, pseudo= "kaneki", nom="ken", prenom= "feu", age=22)
 ]
 
+db_inscription : list[Inscription] = [
+    Inscription(
+        id = 1,
+        user_id = 2
+        mission_id = 1
+    )
+]
