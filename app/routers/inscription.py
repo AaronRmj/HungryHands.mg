@@ -1,6 +1,7 @@
-from app.models import InscriptionCreate
+from app.models import InscriptionCreate, Inscription
 from fastapi import APIRouter, HTTPException
 from app.database import db_mission, db_user, db_inscription
+from datetime import datetime
 
 router = APIRouter(prefix="/mission", tags=["inscription"])
 @router.post("/{mission_id}/inscription", status_code=201)
@@ -17,12 +18,11 @@ def inscrire(mission_id: int, data: InscriptionCreate):
             mission = m 
             break
 
-    #izany hoe 
+    #izany hoe ra tsy miexsite le mission
     if mission is None:
         raise HTTPException(status_code=404, detail="La mission n'existe pas")
 
     #verifier si le user concerné existe
-
     user = None
     for u in db_user:
         if u.id == data.user_id:
@@ -56,3 +56,15 @@ def inscrire(mission_id: int, data: InscriptionCreate):
             
 
 
+    # apres verification on va creer le nouvel inscription
+    new_id = max((i.id for i in db_inscription), default=0) + 1
+    inscription = Inscription(
+        id = new_id,
+        user_id = data.user_id,
+        mission_id = mission_id,
+        date_inscription= datetime.now()
+    )
+
+    db_inscription.append(inscription)
+
+    return {"message": "Inscription reussit", "inscription": inscription}

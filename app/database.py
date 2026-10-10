@@ -55,25 +55,26 @@ db_user: list[User] = [
                 User(id= 9, pseudo= "wecaam", nom="ken", prenom= "feu", age=22),
                 User(id= 10, pseudo= "collins", nom="ken", prenom= "feu", age=22),
                 User(id= 11, pseudo= "darcy", nom="ken", prenom= "feu", age=22),
-
-
 ]
 
 db_inscription: list[Inscription] = [
     Inscription(
         id = 1,
         user_id = 2,
-        mission_id = 2
+        mission_id = 2,
+        date_inscription= "2026-10-10T09:00:00"
         
     ),
     Inscription(
         id = 2,
         user_id = 1,
-        mission_id = 2
+        mission_id = 2,
+        date_inscription= "2026-10-10T09:00:00"
     ),
     Inscription(
         id = 3,
         user_id = 3,
-        mission_id = 2
+        mission_id = 2,
+        date_inscription= "2026-10-10T09:00:00"
     )
 ]
