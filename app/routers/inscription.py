@@ -3,7 +3,7 @@ from fastapi import APIRouter, HTTPException
 from app.database import db_mission, db_user, db_inscription
 
 router = APIRouter(prefix="/mission", tags=["inscription"])
-@router.post("/{mission_id}/inscription", status_code=200)
+@router.post("/{mission_id}/inscription", status_code=201)
 
 #user_id et mission_id no avy amin ny client
 def inscrire(mission_id: int, data: InscriptionCreate):
