@@ -46,15 +46,16 @@ db_mission: list[Mission] = [
 db_user: list[User] = [
                 User(id= 1, pseudo= "kirito", nom="kirigaya", prenom = "ego", age=14),
                 User(id= 2, pseudo= "kaneki", nom="ken", prenom= "feu", age=22),
-                User(id= 2, pseudo= "tyrion", nom="lannister", prenom= "fuego", age=22),
-                User(id= 2, pseudo= "will", nom="ken", prenom= "feu", age=22),
-                User(id= 2, pseudo= "clark", nom="ken", prenom= "feu", age=22),
-                User(id= 2, pseudo= "charlotte", nom="ken", prenom= "feu", age=22),
-                User(id= 2, pseudo= "elizabeth", nom="ken", prenom= "feu", age=22),
-                User(id= 2, pseudo= "catherine", nom="ken", prenom= "feu", age=22),
-                User(id= 2, pseudo= "wecaam", nom="ken", prenom= "feu", age=22),
-                User(id= 2, pseudo= "collins", nom="ken", prenom= "feu", age=22),
-                User(id= 2, pseudo= "darcy", nom="ken", prenom= "feu", age=22),
+                User(id= 3, pseudo= "tyrion", nom="lannister", prenom= "fuego", age=22),
+                User(id= 4, pseudo= "will", nom="ken", prenom= "feu", age=22),
+                User(id= 5, pseudo= "clark", nom="ken", prenom= "feu", age=22),
+                User(id= 6, pseudo= "charlotte", nom="ken", prenom= "feu", age=22),
+                User(id= 7, pseudo= "elizabeth", nom="ken", prenom= "feu", age=22),
+                User(id= 8, pseudo= "catherine", nom="ken", prenom= "feu", age=22),
+                User(id= 9, pseudo= "wecaam", nom="ken", prenom= "feu", age=22),
+                User(id= 10, pseudo= "collins", nom="ken", prenom= "feu", age=22),
+                User(id= 11, pseudo= "darcy", nom="ken", prenom= "feu", age=22),
+
 
 ]
 
